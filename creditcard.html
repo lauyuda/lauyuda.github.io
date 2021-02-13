@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Credit Card Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Lau Yu Da</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="creditcard.html.html">Current Project</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/lauyuda/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/lauyuda" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">Work in progress</span>
+									<h1>Credit Card Fraud<br />
+									</h1>
+									<p>Using dataset from Kaggle.com<br />
+									and applying machine learning concepts<br />
+									to sieve out fraudulent transactions.</p>
+								</header>
+								<div class="image main"><img src="images/creditcard.png" alt="" /></div>
+								<p>We will first look at how we can measure the performance of the model and the types of models 
+									suitable for an imbalanced dataset. The first part will explore different options available 
+									in detecting the fraudulent credit card transactions.
+								</p>
+								<h2>Performance Measures</h2>
+								<h3>Confusion Matrix-based Evaluation</h3>
+									<dl>
+										<dt>Accuracy</dt>
+										<dd>
+											<p>Accuracy is not the best way to measure the performance of a machine learning model for an
+												imbalanced dataset. For example, if a dataset only has 0.1% fraud data, blindly labeling 
+												every data point as fraud will yield 99.9% accuracy. Other metrics should be used to 
+												paint a better picture of the actual performance.
+											</p>
+										</dd>
+										<dt>Recall</dt>
+										<dd>
+											<p>To ensure that no fraudulent transaction get misidentified as non-fraudulent, the recall 
+												can be maximised. This is an interesting metric that can be used. However, there will 
+												be a trade-off between recall and precision.
+											</p>
+										</dd>
+										<dt>F1 Score</dt>
+										<dd>
+											<p>To address the trade-off mentioned earlier, the F1 score was devised to calculate the 
+												harmonic mean between precision and recall and therefore gives equal importance
+												to precision and recall.</p>
+										</dd>
+									</dl>
+								<h3>Parametric Evaluation</h3>
+									<dl>
+										<dt>ROC Curve</dt>
+										<dd>
+											<p>The axes consists of true positive rate (i.e. recall) for the y-axis and
+												false positive rate for the x-axis. Both axes are proportion of the class they
+												are representing: positive for the true positive rate and negative for the
+												false positive rate. Therefore, the ROC curve is insensitive to unbalanced
+												datasets.
+											</p>
+										</dd>
+										<dt>Precision-Recall Curve</dt>
+										<dd>
+											<p>The precision-recall curve shows the tradeoff between precision and recall for 
+												different threshold. A high area under the curve represents both high recall 
+												and high precision, where high precision relates to a low false positive rate, 
+												and high recall relates to a low false negative rate.
+											</p>
+										</dd>
+									</dl>
+								<h2>Methods</h2>
+								<h3>Sampling</h3>
+									<dl>
+										<dt>Undersampling</dt>
+										<dd>
+											<p>Undersampling consists in rebalancing the dataset by taking less examples from 
+												the majority class in order to match the absolute number of examples of the 
+												minority class. This can potentially lead to loss of information. But if the 
+												examples of the majority class are near to others, this method might yield 
+												good results.
+											</p>
+										</dd>
+										<dt>Oversampling</dt>
+										<dd>
+											<p>Oversampling is upsampling the minority class to make it equal in size to the 
+												majority class. The problem is whre and how to generate these new points. 
+												This may lead to overfitting as the points generated may not be true 
+												representatives of the actual minority class.
+											</p>
+										</dd>
+									</dl>
+								<h3>Model-based</h3>
+									<dl>
+										<dt>Isolation Forest</dt>
+										<dd>
+											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										</dd>
+										<dt>Local Outlier Factor</dt>
+										<dd>
+											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										</dd>
+									</dl>
+							</section>
+							<section>
+								<p>Click <a href="https://github.com/lauyuda/" target="_blank">here</a> to see code on Github.</p>
+								<p><a href="index.html">Go back.</a></p>
+							</section>
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Portfolio Simulation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Lau Yu Da</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="portfolio.html">Portfolio Simulation</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/lauyuda/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/lauyuda" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">February 9, 2021</span>
+									<h1>Portfolio Simulation<br />
+									</h1>
+									<p>Adopted fundamental analysis on strategic asset allocation, <br />
+									substantiated it using mean-variance analysis,<br />
+									and performing technical analysis on crypto.</p>
+								</header>
+								
+								<!-- Image -->
+								<h2>Portfolio Asset Allocation</h2>
+								<h3>Looking at past 5 years and 10 years of backtesting results:</h3>
+								<span><img src="images/asset.png" class="center" alt="" /></span>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-6"><span class="image fit"><img src="images/5ef.png" alt="" /></span></div>
+										<div class="col-6"><span class="image fit"><img src="images/10ef.png" alt="" /></span></div>
+										<!-- Break -->
+										<div class="col-6"><span class="image fit"><img src="images/5mvar.png" alt="" /></span></div>
+										<div class="col-6"><span class="image fit"><img src="images/10mvar.png" alt="" /></span></div>
+										<!-- Break -->
+										<div class="col-6"><span class="image fit"><img src="images/5msr.png" alt="" /></span></div>
+										<div class="col-6"><span class="image fit"><img src="images/10msr.png" alt="" /></span></div>
+									</div>
+								</div>
+
+								<h3>Examining the correlation table:</h3>
+								<span><img src="images/correlation.png" class="center" alt="" /></span>
+								<dl>
+									<dt>Equities versus Bonds</dt>
+									<dd>
+										<p>The generated portfolio allocation by Monte Carlo overweights the three bonds (AGG, HYG, and EMB)
+											because of the low/negative correlation with the other equities. This is what would be described
+											as avoiding putting all the eggs into one basket. On the other hand, the actual portfolio allocation took
+											more risk to get a higher return.
+										</p>
+									</dd>
+									<dt>USA, Europe, and Emerging Markets(EM)</dt>
+									<dd>
+										<p>These three equities are highly correlated with one another and has high correlation to other
+											equities as well. It is likely that USA has a superior return-to-risk ratio to the other two 
+											which explains for Europe and EM to be underweighted in all Monte Carlo simulated portfolio. 
+											In the actual portfolio, EM had a much higher weight.
+										</p>
+									</dd>
+									<dt>China</dt>
+									<dd>
+										<p>China likely has high variance but relatively higher returns which explains that China had less
+											than 1% allocation in the minimum variance portfolio but 10.9% and 23.3% in the 5 years max Sharpe
+											and 10 years max Sharpe portfolio respectively.
+										</p>
+									</dd>
+									<dt>Japan and Frontier Markets(FM)</dt>
+									<dd>
+										<p>Both Japan and FM have correlations which can be described to fall in the mid-range. In terms of 
+											diversification, it makes them relevant in reducing variance and hold about 10% each in the simulated 
+											minimum variance portfolio. However, lack of confidence in the FM and the underperforming Japanese
+											market meant that they have very low weights in the actual portfolio. 
+										</p>
+									</dd>
+									<dt>Singapore</dt>
+									<dd>
+										<p>Singapore likely has low returns and high standard deviation which causes it to be 
+											unfavourable in both minimum variance and maximum Sharpe ratio portfolios. It was kept
+											at the minimum of 5% in the actual portfolio due to a constraint by the virtual client.
+										</p>
+									</dd>
+									<dt>Minimum Variance Portfolio</dt>
+									<dd>
+										<p>It is interesting to note that the 5 years and 10 years minimum variance portfolio remained the
+											same whereas there was quite a change for a max Sharpe ratio based portfolio. This suggests that
+											it may be more "stable and consistent" to use the minimum variance portfolio.
+										</p>
+									</dd>
+								</dl>
+
+								<h2>Technical Analysis</h2>
+								<h3>Bollinger Band for CMC200:</h3>
+								<span><img src="images/bollinger.png" class="center" alt="" /></span>
+								<p>The price of CMC200 double in less than one month and I looked into should the portfolio 
+									include crypto out of FOMO. Bollinger bands consist of a centerline and two price channels 
+									(bands) above and below it. The centerline is a moving average; the price channels are the 
+									standard deviations (usually 2 std dev) of the ticker. The bands will widen as the stock
+									becomes more volatile.
+								</p>
+								<p>When CMC200 prices continually touch the upper Bollinger band, the prices are thought to be 
+									overbought; conversely, when they continually touch the lower band, prices are thought to be 
+									oversold, triggering a buy signal. As evident, it is not a good idea to buy CMC200 due to rising 
+									prices and FOMO.
+								</p>
+								<p>After this analysis, the price continued climbing despite showing signs of overbuying. One can 
+									never win bets 100% of the time.
+								</p>
+							</section>
+							<section>
+								<p>Click <a href="https://github.com/lauyuda/portfoliosim" target="_blank">here</a> to see code on Github.</p>
+								<p><a href="index.html">Go back.</a></p>
+							</section>
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
