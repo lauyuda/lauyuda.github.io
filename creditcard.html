@@ -112,7 +112,7 @@
 										<dt>Oversampling</dt>
 										<dd>
 											<p>Oversampling is upsampling the minority class to make it equal in size to the 
-												majority class. The problem is whre and how to generate these new points. 
+												majority class. The problem is where and how to generate these new points. 
 												This may lead to overfitting as the points generated may not be true 
 												representatives of the actual minority class.
 											</p>
@@ -122,16 +122,229 @@
 									<dl>
 										<dt>Isolation Forest</dt>
 										<dd>
-											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+											<p>Isolating anomaly observations is easier because only a few conditions are needed 
+												to separate those cases from the normal observations. On the other hand, isolating 
+												normal observations require more conditions. Therefore, an anomaly score can be 
+												calculated as the number of conditions required to separate a given observation.
+
+											</p>
 										</dd>
 										<dt>Local Outlier Factor</dt>
 										<dd>
-											<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+											<p>This algorithm is an unsupervised outlier detection method which computes the 
+												local density deviation of a given data point with respect to its neighbors. It 
+												considers as outlier samples that have a substantially lower density than their 
+												neighbors.
+											</p>
 										</dd>
 									</dl>
+								<h2>Results</h2>
+								<h3>Without Undersampling</h3>
+								<p><span class="image left"><img src="images/classimbalance.png" alt="" /></span>
+									The dataset is highly unbalanced, the positive class (frauds) account for 0.172% of all transactions.
+									Out of 284,807 transactions, there are only 492 fraud cases. For computational purposes,
+									only 10% of the data will be used but the percentage of frauds will remain the same.
+								</p>
+								<br>
+								<h4>Grid Search</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Rank</th>
+													<th>Mean</th>
+													<th>Std Dev</th>
+													<th>max_depth</th>
+													<th>n_estimators</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>0.699</td>
+													<td>0.194</td>
+													<td>3</td>
+													<td>20</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>0.541</td>
+													<td>0.286</td>
+													<td>5</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>0.526</td>
+													<td>0.273</td>
+													<td>3</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>0.521</td>
+													<td>0.274</td>
+													<td>3</td>
+													<td>180</td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td>0.501</td>
+													<td>0.238</td>
+													<td>5</td>
+													<td>180</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								<p><span class="image right"><img src="images/confusionmatrix1.png" alt="" /></span>
+									<br> A grid search was ran over some possible scenarios using recall as the scoring and the 
+									top five were recorded in a table. A confusion matrix was plotted and out of the actual 
+									frauds, 27% of them were misidentified as non-fraudulent.
+								</p>
+								<h3>Undersampling</h3>
+								<p><span class="image left"><img src="images/undersampling.png" alt="" /></span>
+									In this technique, majority class was undersampled to match the minority class. 
+									Random sample of non-fraud class were taken to match number of fraud samples. 
+									This makes sure that the training data has equal amount of fraud and non-fraud samples
+									such that the ratio is 1:1.
+								</p>
+								<br>
+								<h4>Grid Search</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Rank</th>
+													<th>Mean</th>
+													<th>Std Dev</th>
+													<th>max_depth</th>
+													<th>n_estimators</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>0.940</td>
+													<td>0.0256</td>
+													<td>3</td>
+													<td>180</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>0.940</td>
+													<td>0.0274</td>
+													<td>3</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>0.937</td>
+													<td>0.0277</td>
+													<td>3</td>
+													<td>20</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>0.936</td>
+													<td>0.0286</td>
+													<td>2</td>
+													<td>180</td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td>0.934</td>
+													<td>0.0220</td>
+													<td>5</td>
+													<td>180</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								<p><span class="image right"><img src="images/confusionmatrix2.png" alt="" /></span>
+									This time, accuracy scoring was used to run a grid search and the top five were tabulated.
+									A confusion matrix was plotted and out of the actual frauds, only 7% of them were misidentified
+									as non-fraudulent, much better than the previous. 
+								</p>
+								<p>However, there is also an increase in false
+									positives. This means that there is a balance between better customer experience and better 
+									fraud detection.
+								</p>
+								<h3>Outlier Detection Models</h3>
+								<p>Without having to undersample, even with an imbalanced dataset, there are models that can 
+									detect these fraud cases. In this example, isolation forest and local outlier detection 
+									will be explored. The isolation forest model is based on decision trees while the local 
+									outlier detection is based on k-nearest-neighbour.
+								</p>
+								<h4>Isolation Forest</h3>
+									<p>Number of errors: 71
+										<br>Accuracy: 0.998</p>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Class</th>
+													<th>Precision</th>
+													<th>Recall</th>
+													<th>F1 Score</th>
+													<th>Support</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>0</td>
+													<td>1.00</td>
+													<td>1.00</td>
+													<td>1.00</td>
+													<td>28432</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>0.28</td>
+													<td>0.29</td>
+													<td>0.28</td>
+													<td>49</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								
+								<h4>Local Outlier Factor</h4>
+									<p>Number of errors: 97
+										<br>Accuracy: 0.997</p>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Class</th>
+													<th>Precision</th>
+													<th>Recall</th>
+													<th>F1 Score</th>
+													<th>Support</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>0</td>
+													<td>1.00</td>
+													<td>1.00</td>
+													<td>1.00</td>
+													<td>28432</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>0.02</td>
+													<td>0.02</td>
+													<td>0.02</td>
+													<td>49</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
 							</section>
 							<section>
-								<p>Click <a href="https://github.com/lauyuda/" target="_blank">here</a> to see code on Github.</p>
+								<p>Click <a href="https://github.com/lauyuda/creditcard/blob/main/CreditCard.ipynb" target="_blank">here</a> to see code on Github.</p>
 								<p><a href="index.html">Go back.</a></p>
 							</section>
 					</div>
