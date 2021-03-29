@@ -41,19 +41,84 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">Work In Progress</span>
+									<span class="date">30 March, 2021</span>
 									<h1>Roboadvisor<br />
 									</h1>
 									<p>Predicts risk tolerance level with machine learning,<br />
 									manually add or remove preferred assets,<br />
 									visualise portfolio allocation and earnings all on the dashboard.</p>
 								</header>
+								<div class="image main"><img src="images/currentproject.png" alt="" /></div>
+								<header>
+									<h2>Risk Tolerance Model</h2>
+									<p>Using machine learning to predict risk tolerance of user</p>
+								</header>
+								<p><span class="image left"><img src="images/roboadvisor/feature.png" alt="" /></span>
+									Seven features (figure on left excl. net worth) were identified to have effect on the 
+									risk tolerance of users. Next, k-Fold Cross-Validation was employed to assess the model 
+									performance as it provides a range of accuracy scores across different data sets. 
+								</p>
+								<p>Following that, a grid search was used for the Random Forest Regressor to find the best 
+									parameters. As it is a regression model, R2 scoring was used to assess the model 
+									performance. The bar chart on the above illustrates the feature importance in the 
+									model. The last step is to save the model for it to be used when creating the dashboard.
+								</p>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Set</th>
+												<th>Metric</th>
+												<th>Value</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Test Set</td>
+												<td>Mean Squared Error</td>
+												<td>0.001249</td>
+											</tr>
+											<tr>
+												<td>Test Set</td>
+												<td>R2 Score</td>
+												<td>0.9619</td>
+											</tr>
+											<tr>
+												<td>Validation Set</td>
+												<td>Mean Squared Error</td>
+												<td>0.006013</td>
+											</tr>
+											<tr>
+												<td>Validation Set</td>
+												<td>R2 Score</td>
+												<td>0.8156</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<header>
+									<h2>Roboadvisory Dashboard</h2>
+									<p>Python Dash as a framework for building an interactive dashboard</p>
+								</header>
+								<span class="image fit"></span><img src="images/roboadvisor/dashboard.png" alt="" /></span>
+								
+								<p>The dashboard allows users to select their own profile; the risk tolerance is automatically
+									generated based on the user inputs into the machine learning model created earlier.
+								</p>
+								<p>The user is free to select any number of assets within the investment universe 
+									(S&P 500). After selection, the portfolio weightage is generated using convex optimisation 
+									and the results are displayed onto a bar chart. 
+								</p>
+								<p>Lastly, a graph of a $100 investment allows users to visualise their returns from a 
+									roboadvisory portfolio over the course of a few years. Video included below to showcase
+									dashboard interactivity.
+								</p>
 								<video controls muted width="1190">
 									<source src="videos/roboadvisor.mp4" type="video/mp4">
 								</video>
-								<p>Trailer. Coming soon.</p>
 							</section>
 							<section>
+								<p>Click <a href="https://github.com/lauyuda/roboadvisor" target="_blank">here</a> to see code on Github.</p>
 								<p><a href="index.html">Go back.</a></p>
 							</section>
 							</p>
@@ -63,7 +128,6 @@
 					<div id="copyright">
 						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->
